@@ -4,16 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Watermarking Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Image Watermarking Tool</h1>
-    <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-        <input type="file" name="files[]" multiple>
-        <button type="submit">Upload</button>
-    </form>
-
-    <div id="response"></div>
+    
+    <div class="container h-100 d-flex justify-content-center align-items-center">
+        <div class="upload-form">
+            <h1 class="text-center mb-4" data-lang-th="เครื่องมือลายน้ำรูปภาพ" data-lang-en="Image Watermarking Tool">เครื่องมือลายน้ำรูปภาพ</h1>
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="formFile" class="form-label" data-lang-th="เลือกรูปภาพที่ต้องการอัพโหลด สูงสุด 20 ไฟล์" data-lang-en="Select Image(s) to Upload">เลือกรูปภาพที่ต้องการอัพโหลด:</label>
+                    <input class="form-control" type="file" id="formFile" name="files[]" multiple>
+                </div>
+                <button type="submit" class="btn btn-primary" data-lang-th="อัพโหลด" data-lang-en="Upload">อัพโหลด</button>
+            </form>
+            
+            <div class="lang-toggle mt-3">
+                <button class="btn btn-link lang-btn" data-lang="th">ไทย</button> /
+                <button class="btn btn-link lang-btn" data-lang="en">English</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.getElementById('uploadForm').addEventListener('submit', function(event) {
@@ -44,6 +56,31 @@
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to toggle language
+            function toggleLanguage(lang) {
+                document.querySelectorAll("[data-lang-th], [data-lang-en]").forEach(function(element) {
+                    if (lang === "th") {
+                        element.textContent = element.getAttribute("data-lang-th");
+                    } else {
+                        element.textContent = element.getAttribute("data-lang-en");
+                    }
+                });
+            }
+    
+            // Initial language setup
+            var currentLang = "th";
+            toggleLanguage(currentLang);
+    
+            // Language toggle buttons event listeners
+            document.querySelectorAll(".lang-btn").forEach(function(button) {
+                button.addEventListener("click", function() {
+                    currentLang = button.getAttribute("data-lang");
+                    toggleLanguage(currentLang);
+                });
             });
         });
     </script>

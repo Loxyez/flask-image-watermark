@@ -1,76 +1,21 @@
-/* Global styles */
-
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
+    background-color: #f8f9fa;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+    height: 100vh;
 }
 
-/* Header styles */
-
-.header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-}
-
-.header h1 {
-    margin: 0;
-}
-
-/* Form styles */
-
-.form-container {
-    background-color: #fff;
-    border-radius: 8px;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-
-.form-group label {
-    font-weight: bold;
-}
-
-.form-group input[type="file"] {
-    display: block;
+.upload-form {
+    max-width: 500px;
     width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.form-group button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Responsive styles */
-
-@media only screen and (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    .header {
-        padding: 10px;
-    }
-
-    .form-container {
-        padding: 10px;
-    }
+.upload-form h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
