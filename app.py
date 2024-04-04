@@ -2,6 +2,7 @@ from flask import Flask, request, send_file, render_template
 from PIL import Image, ImageDraw, ImageFont
 import os
 import zipfile
+import logging
 
 app = Flask(__name__)
 

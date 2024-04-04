@@ -12,6 +12,7 @@
     <div class="container h-100 d-flex justify-content-center align-items-center">
         <div class="upload-form">
             <h1 class="text-center mb-4" data-lang-th="เครื่องมือลายน้ำรูปภาพ" data-lang-en="Image Watermarking Tool">เครื่องมือลายน้ำรูปภาพ</h1>
+            <img src = './img/watermark_pst.png'>
             <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="formFile" class="form-label" data-lang-th="เลือกรูปภาพที่ต้องการอัพโหลด สูงสุด 20 ไฟล์" data-lang-en="Select Image(s) to Upload">เลือกรูปภาพที่ต้องการอัพโหลด:</label>
@@ -50,9 +51,12 @@
                 var a = document.createElement('a');
                 a.href = url;
                 a.download = 'processed_images.zip';
-                document.getElementById('response').innerHTML = '';
-                document.getElementById('response').appendChild(a);
+                document.body.appendChild(a);
                 a.click();
+                document.body.removeChild(a);
+
+                // Alert the user that the download is complete
+                alert('Download complete!');
             })
             .catch(error => {
                 console.error('There was a problem with the fetch operation:', error);
